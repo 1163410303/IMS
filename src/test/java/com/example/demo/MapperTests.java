@@ -1,6 +1,8 @@
 package com.example.demo;
 
+import com.example.demo.dao.TicketMapper;
 import com.example.demo.dao.UserMapper;
+import com.example.demo.entity.LoginTicket;
 import com.example.demo.entity.User;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -15,6 +17,9 @@ public class MapperTests {
 
     @Autowired
     private UserMapper userMapper;
+
+    @Autowired
+    private TicketMapper ticketMapper;
 
     @Test
     public void testSelectUser(){
@@ -36,4 +41,37 @@ public class MapperTests {
         System.out.println(user.getId());
 
     }
+
+    /**
+     * 登录凭据CRUD
+     */
+    @Test
+    public void testInsertLoginTicket(){
+        LoginTicket loginTicket = new LoginTicket();
+        loginTicket.setUserId(101);
+        loginTicket.setStatus(0);
+        loginTicket.setTicket("test");
+
+        int rows = ticketMapper.insertLoginTicket(loginTicket);
+        System.out.println(rows);
+        System.out.println(loginTicket.getId());
+
+    }
+
+    @Test
+    public void testSelectLoginTicket(){
+        LoginTicket loginTicket = new LoginTicket();
+        loginTicket = ticketMapper.selectByTicket("test");
+        System.out.println(loginTicket);
+        System.out.println(loginTicket.getId());
+    }
+
+    @Test
+    public void testUpdateLoginTicket(){
+
+        int rows = ticketMapper.updateStatus("test", 1);
+        System.out.println(rows);
+    }
+
+
 }

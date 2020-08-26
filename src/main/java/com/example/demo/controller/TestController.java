@@ -1,11 +1,19 @@
 package com.example.demo.controller;
 
 import com.example.demo.annotation.LoginRequired;
+import com.example.demo.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @RestController
 public class TestController {
+
+	@Autowired
+	private UserService userService;
 
 	@LoginRequired
 	@GetMapping("/hello")
@@ -15,7 +23,10 @@ public class TestController {
 
 	@GetMapping("/login")
 	public String login() {
-		return "You need to login";
+		Map<String, Object> result = new HashMap<>();
+		result = userService.login("wang","123");
+		String msg = (String) result.get("msg");
+		return msg;
 	}
 
 

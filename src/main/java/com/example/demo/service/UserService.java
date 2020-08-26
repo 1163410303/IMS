@@ -4,7 +4,7 @@ import java.util.Map;
 import com.example.demo.entity.User;
 
 
-public interface IUserService {
+public interface UserService {
 
     /**
      * 根据本地ticket获取用户登录状态
