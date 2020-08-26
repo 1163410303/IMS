@@ -1,10 +1,10 @@
-package com.example.demo.model;
+package com.example.demo.entity;
 
 public class User {
     private int id;
     private String username;
     private String password;
-    private int type;
+    private int status;
 
     public String getUsername() {
         return username;
@@ -22,15 +22,6 @@ public class User {
         this.password = password;
     }
 
-    public int getType() {
-        return type;
-    }
-
-    public void setType(int type) {
-        this.type = type;
-    }
-
-
     public int getId() {
         return id;
     }
@@ -39,13 +30,20 @@ public class User {
         this.id = id;
     }
 
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
-                ", type=" + type +
                 '}';
     }
 }
