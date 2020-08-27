@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import com.example.demo.dao.StudentMapper;
 import com.example.demo.dao.TicketMapper;
 import com.example.demo.dao.UserMapper;
 import com.example.demo.entity.LoginTicket;
@@ -21,8 +22,11 @@ public class MapperTests {
     @Autowired
     private TicketMapper ticketMapper;
 
+    @Autowired
+    private StudentMapper studentMapper;
+
     @Test
-    public void testSelectUser(){
+    public void testSelectUser() {
         User user = userMapper.selectById(1);
         System.out.println(user);
 
@@ -30,7 +34,7 @@ public class MapperTests {
     }
 
     @Test
-    public void testInsertUser(){
+    public void testInsertUser() {
         User user = new User();
         user.setUsername("wang");
         user.setPassword("123");
@@ -39,14 +43,13 @@ public class MapperTests {
 
         System.out.println(rows);
         System.out.println(user.getId());
-
     }
 
     /**
      * 登录凭据CRUD
      */
     @Test
-    public void testInsertLoginTicket(){
+    public void testInsertLoginTicket() {
         LoginTicket loginTicket = new LoginTicket();
         loginTicket.setUserId(101);
         loginTicket.setStatus(0);
@@ -55,11 +58,10 @@ public class MapperTests {
         int rows = ticketMapper.insertLoginTicket(loginTicket);
         System.out.println(rows);
         System.out.println(loginTicket.getId());
-
     }
 
     @Test
-    public void testSelectLoginTicket(){
+    public void testSelectLoginTicket() {
         LoginTicket loginTicket = new LoginTicket();
         loginTicket = ticketMapper.selectByTicket("test");
         System.out.println(loginTicket);
@@ -67,7 +69,7 @@ public class MapperTests {
     }
 
     @Test
-    public void testUpdateLoginTicket(){
+    public void testUpdateLoginTicket() {
 
         int rows = ticketMapper.updateStatus("test", 1);
         System.out.println(rows);

@@ -11,7 +11,7 @@ public interface UserService {
      * @param ticket
      * @return  user
      */
-    User selectUserByTicket(String ticket);
+    Map<String, Object> selectUserByTicket(String ticket);
 
     /**
      * 注册

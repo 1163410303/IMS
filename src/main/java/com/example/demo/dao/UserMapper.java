@@ -7,11 +7,15 @@ import org.apache.ibatis.annotations.Mapper;
 public interface UserMapper {
 
     User selectById(int id);
+
     User selectByName(String name);
+
     int insertUser(User user);
 
     /**
      * 设置用户状态，0代表注册用户，1代表已停用
+     * abcdefghijklmn
+     *
      * @param id
      * @param status
      * @return
@@ -19,5 +23,6 @@ public interface UserMapper {
     int updateStatus(int id, int status);
 
     int updatePassword(int id, String password);
+
 
 }

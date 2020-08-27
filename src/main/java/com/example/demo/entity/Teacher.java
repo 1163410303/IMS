@@ -1,6 +1,6 @@
 package com.example.demo.entity;
 
-public class Teacher {
+public class Teacher extends User{
     private int teacherId;
     private String name;
     private String phoneNumber;
