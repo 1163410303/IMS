@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.LessonMapper">
+
+    <sql id="insertFields">
+        lesson_id, name, teacher_id, credit
+    </sql>
+
+    <sql id="selectFields">
+        lesson_id, name, teacher_id, credit
+    </sql>
+
+    <select id="selectById" resultType="Lesson">
+        select <include refid="selectFields"></include>
+        from lesson
+        where lesson_id = #{lessonId}
+    </select>
+
+    <select id="selectByTeacherId" resultType="Lesson">
+        select <include refid="selectFields"></include>
+        from lesson
+        where teacher_id = #{teacherId}
+    </select>
+
+    <select id="selectByName" resultType="Lesson">
+        select <include refid="selectFields"></include>
+        from lesson
+        where name = #{name}
+    </select>
+
+    <insert id="insertLesson" parameterType="Lesson">
+        insert into lesson (<include refid="insertFields"></include>)
+        values(#{lessonId}, #{name}, #{teacherId}, #{credit})
+    </insert>
+
+
+</mapper>

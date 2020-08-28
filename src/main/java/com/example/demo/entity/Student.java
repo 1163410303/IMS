@@ -7,8 +7,7 @@ public class Student extends User {
     private String major;
     private String classId;
     private String name;
-    private String sex;
-    private Date birthday;
+    private int sex;//0 male
 
     public int getStudentId() {
         return studentId;
@@ -42,21 +41,22 @@ public class Student extends User {
         this.name = name;
     }
 
-    public String getSex() {
+    public int getSex() {
         return sex;
     }
 
-    public void setSex(String sex) {
+    public void setSex(int sex) {
         this.sex = sex;
     }
 
-    public Date getBirthday() {
-        return birthday;
+    @Override
+    public String toString() {
+        return "Student{" +
+                "studentId=" + studentId +
+                ", major='" + major + '\'' +
+                ", classId='" + classId + '\'' +
+                ", name='" + name + '\'' +
+                ", sex=" + sex +
+                '}';
     }
-
-    public void setBirthday(Date birthday) {
-        this.birthday = birthday;
-    }
-
-
 }

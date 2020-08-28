@@ -1,10 +1,11 @@
-package com.example.demo;
+package com.example.demo.dao;
 
-import com.example.demo.dao.StudentMapper;
-import com.example.demo.dao.TicketMapper;
-import com.example.demo.dao.UserMapper;
+import com.example.demo.dao.*;
 import com.example.demo.entity.LoginTicket;
+import com.example.demo.entity.Student;
+import com.example.demo.entity.Teacher;
 import com.example.demo.entity.User;
+import com.example.demo.entity.Class;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.assertj.core.api.Assertions;
@@ -75,5 +76,71 @@ public class MapperTests {
         System.out.println(rows);
     }
 
+    /**
+     * test StudentMapper
+     */
+    @Test
+    public void testInsertStudent() {
+        Student student = new Student();
+        student.setName("test02");
+        student.setStatus(0);
+        student.setUsername("bettercallsoul");
+        student.setPassword("123456");
+        student.setMajor("computer science");
+        student.setSex(0);
+        studentMapper.insertUser(student);
+        studentMapper.insertStudent(student);
+    }
 
+    @Test
+    public void testSelectStudent() {
+        studentMapper.updateStatus(104, 1);
+        Student stu = studentMapper.selectByStuId(4);
+        System.out.println(stu);
+    }
+
+    /**
+     * test TeacherMapper
+     */
+    @Autowired
+    TeacherMapper teacherMapper;
+
+    @Test
+    public void testInsertTeacher() {
+        Teacher teacher = new Teacher();
+        teacher.setName("teacher su");
+        teacher.setPhoneNumber("1881888181");
+        teacher.setSex(1);
+        teacher.setPassword("123");
+        teacher.setStatus(0);
+        teacher.setTeacherId(1234);
+        teacherMapper.insertUser(teacher);
+        teacherMapper.insertTeacher(teacher);
+
+    }
+
+    @Test
+    public void testSelectTeacher() {
+        Teacher teacher = teacherMapper.selectByTeacherId(1234);
+        System.out.println(teacher);
+    }
+
+    /**
+     * test lesson
+     */
+
+    @Autowired
+    ClassMapper classMapper;
+    @Test
+    public void testInsertClass(){
+        Class newclass = new Class();
+        newclass.setClassId(2);
+        newclass.setName("121班");
+        newclass.setHeadTeacherId(1234);
+        classMapper.insertClass(newclass);
+    }
+    @Test
+    public void testSelectClass(){
+        System.out.println(classMapper.selectByClassId(2));
+    }
 }

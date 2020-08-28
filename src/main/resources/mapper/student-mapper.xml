@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.StudentMapper">
+
+    <sql id="insertFields">
+        student_id, major, sex, user_id, name
+    </sql>
+
+    <sql id="selectFields">
+        student_id, major, sex, user_id, name
+    </sql>
+
+    <select id="selectByStuId" resultType="Student">
+        select <include refid="selectFields"></include>
+        from student
+        where student_id = #{stuId}
+    </select>
+
+    <insert id="insertStudent" parameterType="Student" keyProperty="studentId">
+        insert into student (<include refid="insertFields"></include>)
+        values(#{studentId}, #{major}, #{sex}, #{id}, #{name})
+    </insert>
+
+
+</mapper>

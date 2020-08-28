@@ -4,7 +4,7 @@ public class Teacher extends User{
     private int teacherId;
     private String name;
     private String phoneNumber;
-    private String sex;
+    private int sex;
 
     public int getTeacherId() {
         return teacherId;
@@ -30,11 +30,21 @@ public class Teacher extends User{
         this.phoneNumber = phoneNumber;
     }
 
-    public String getSex() {
+    public int getSex() {
         return sex;
     }
 
-    public void setSex(String sex) {
+    public void setSex(int sex) {
         this.sex = sex;
+    }
+
+    @Override
+    public String toString() {
+        return "Teacher{" +
+                "teacherId=" + teacherId +
+                ", name='" + name + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", sex=" + sex +
+                '}';
     }
 }
