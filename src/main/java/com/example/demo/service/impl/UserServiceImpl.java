@@ -1,8 +1,12 @@
 package com.example.demo.service.impl;
 
+import com.example.demo.dao.StudentMapper;
+import com.example.demo.dao.TeacherMapper;
 import com.example.demo.dao.TicketMapper;
 import com.example.demo.dao.UserMapper;
 import com.example.demo.entity.LoginTicket;
+import com.example.demo.entity.Student;
+import com.example.demo.entity.Teacher;
 import com.example.demo.entity.User;
 import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +20,12 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserMapper userMapper;
+
+    @Autowired
+    private StudentMapper studentMapper;
+
+    @Autowired
+    private TeacherMapper teacherMapper;
 
     @Autowired
     private TicketMapper ticketMapper;
@@ -52,7 +62,24 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Map<String, Object> register(User user) {
-        return null;
+        Map<String, Object> map = new HashMap<>();
+        userMapper.insertUser(user);
+        return map;
+    }
+
+    @Override
+    public Map<String, Object> registerTeacher(Teacher teacher) {
+        Map<String, Object> map = new HashMap<>();
+        userMapper.insertUser(teacher);
+        teacherMapper.insertTeacher(teacher);
+        return map;
+    }
+
+    @Override
+    public Map<String, Object> registerStudent(Student student) {
+        Map<String, Object> map = new HashMap<>();
+
+        return map;
     }
 
     @Override

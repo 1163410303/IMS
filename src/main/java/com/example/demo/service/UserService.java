@@ -1,6 +1,9 @@
 package com.example.demo.service;
 
 import java.util.Map;
+
+import com.example.demo.entity.Student;
+import com.example.demo.entity.Teacher;
 import com.example.demo.entity.User;
 
 
@@ -19,6 +22,20 @@ public interface UserService {
      * @return
      */
     Map<String,Object> register(User user);
+
+    /**
+     * 注册教师
+     * @param teacher
+     * @return
+     */
+    Map<String,Object> registerTeacher(Teacher teacher);
+
+    /**
+     * 注册学生
+     * @param student
+     * @return
+     */
+    Map<String,Object> registerStudent(Student student);
 
     /**
      * 登录

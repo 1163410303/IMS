@@ -14,7 +14,6 @@ public interface UserMapper {
 
     /**
      * 设置用户状态，0代表注册用户，1代表已停用
-     * abcdefghijklmn
      *
      * @param id
      * @param status
