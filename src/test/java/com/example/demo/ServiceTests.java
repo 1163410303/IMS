@@ -20,7 +20,17 @@ public class ServiceTests {
 
     @Test
     public void testUserService(){
-        Map<String, Object> map = userService.selectUserByTicket("test");
+        Map<String, Object> map = userService.selectUserByTicket("test123");
         System.out.println(map);
     }
+    @Test
+    public void testLessonService(){
+        Map<String, Object> map = userService.selectUserByTicket("test123");
+        Map<String, Object> map1 = userService.selectUserByTicket("test123");
+        Map<String, Object> map2 = userService.selectUserByTicket("test123");
+        Map<String, Object> map3 = userService.selectUserByTicket("test123");
+        Map<String, Object> map4 = userService.selectUserByTicket("test123");
+        System.out.println(map);
+    }
+
 }

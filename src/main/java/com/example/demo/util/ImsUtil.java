@@ -14,13 +14,6 @@ public class ImsUtil {
         return UUID.randomUUID().toString().replaceAll("-", "");
     }
 
-    // MD5加密
-    public static String md5(String key) {
-        if (StringUtils.isBlank(key)) {
-            return null;
-        }
-        return DigestUtils.md5DigestAsHex(key.getBytes());
-    }
 
     /**
      * 封装json对象

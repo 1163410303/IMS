@@ -28,10 +28,8 @@ public class MapperTests {
 
     @Test
     public void testSelectUser() {
-        User user = userMapper.selectById(1);
-        System.out.println(user);
 
-        System.out.println(userMapper.selectByName("wang"));
+        System.out.println(userMapper.selectById(101));
     }
 
     @Test
@@ -64,7 +62,7 @@ public class MapperTests {
     @Test
     public void testSelectLoginTicket() {
         LoginTicket loginTicket = new LoginTicket();
-        loginTicket = ticketMapper.selectByTicket("test");
+        loginTicket = ticketMapper.selectByTicket("test123");
         System.out.println(loginTicket);
         System.out.println(loginTicket.getId());
     }
@@ -134,7 +132,7 @@ public class MapperTests {
     @Test
     public void testInsertClass(){
         Class newclass = new Class();
-        newclass.setClassId(2);
+        newclass.setClassId(3);
         newclass.setName("121班");
         newclass.setHeadTeacherId(1234);
         classMapper.insertClass(newclass);

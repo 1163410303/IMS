@@ -1,7 +1,5 @@
 package com.example.demo.entity;
 
-import java.util.Date;
-
 public class Student extends User {
     private int studentId;
     private String major;

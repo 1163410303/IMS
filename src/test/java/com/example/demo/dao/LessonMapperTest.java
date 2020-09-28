@@ -16,7 +16,7 @@ class LessonMapperTest {
 
     @Test
     void insertLesson() {
-        Lesson lesson = new Lesson(12, "生物", 1234, "3.0");
+        Lesson lesson = new Lesson(112, "生物", 1234, "3.0");
         lessonMapper.insertLesson(lesson);
     }
 
@@ -28,7 +28,7 @@ class LessonMapperTest {
 
     @Test
     void selectByTeacherId() {
-        Lesson lesson = lessonMapper.selectByTeacherId(1234);
+        Lesson lesson = lessonMapper.selectByTeacherId(1);
         System.out.println(lesson);
     }
 
